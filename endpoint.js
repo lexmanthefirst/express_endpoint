@@ -2,21 +2,21 @@ const express = require("express");
 const app = express();
 
 app.get("/endpoint", (req, res) => {
-  const { slackName, track } = req.query;
+  const { slack_name, track } = req.query;
   const currentDay = new Date().toLocaleString("en-US", { weekday: "long" });
   const utcTime = new Date().toISOString();
 
   const githubFileUrl =
-    "https://github.com/username/repo/blob/main/file_name.ext"; // Replace with actual URL
-  const githubRepoUrl = "https://github.com/username/repo"; // Replace with actual URL
+    "https://github.com/lexmanthefirst/express_endpoint/blob/main/endpoint.js";
+  const githubRepoUrl = "https://github.com/lexmanthefirst/express_endpoint";
 
   // Validate UTC time +/- 2 hours
   const currentTime = new Date();
   const currentUtcOffset = currentTime.getTimezoneOffset() / 60; // Offset in hours
 
-  if (currentUtcOffset < -2 || currentUtcOffset > 2) {
-    return res.status(400).json({ error: "UTC time not within valid range" });
-  }
+  currentUtcOffset < -2 ||
+    (currentUtcOffset > 2 &&
+      res.status(400).json({ error: "UTC time not within valid range" }));
 
   const response = {
     slack_name,
