@@ -2,7 +2,8 @@ const express = require("express");
 const app = express();
 
 app.get("/endpoint", (req, res) => {
-  const { slack_name, track } = req.query;
+  const slack_name = "Okhitoya Alex";
+  const track = "Backend";
   const currentDay = new Date().toLocaleString("en-US", { weekday: "long" });
   const utcTime = new Date().toISOString();
 
@@ -11,10 +12,10 @@ app.get("/endpoint", (req, res) => {
   const githubRepoUrl = "https://github.com/lexmanthefirst/express_endpoint";
 
   const response = {
-    slack_name,
+    slack_name: slack_name,
     current_day: currentDay,
     utc_time: utcTime,
-    track,
+    track: track,
     github_file_url: githubFileUrl,
     github_repo_url: githubRepoUrl,
     status_code: 200,
