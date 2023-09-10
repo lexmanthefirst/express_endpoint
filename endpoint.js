@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-app.get("/endpoint", (req, res) => {
+app.get("/api", (req, res) => {
   const { slack_name, track } = req.query;
   const currentDay = new Date().toLocaleString("en-US", { weekday: "long" });
   const utcTime = new Date().toISOString();
