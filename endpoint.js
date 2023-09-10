@@ -10,14 +10,6 @@ app.get("/endpoint", (req, res) => {
     "https://github.com/lexmanthefirst/express_endpoint/blob/main/endpoint.js";
   const githubRepoUrl = "https://github.com/lexmanthefirst/express_endpoint";
 
-  // Validate UTC time +/- 2 hours
-  const currentTime = new Date();
-  const currentUtcOffset = currentTime.getTimezoneOffset() / 60; // Offset in hours
-
-  currentUtcOffset < -2 ||
-    (currentUtcOffset > 2 &&
-      res.status(400).json({ error: "UTC time not within valid range" }));
-
   const response = {
     slack_name,
     current_day: currentDay,
