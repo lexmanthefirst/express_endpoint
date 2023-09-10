@@ -2,8 +2,8 @@ const express = require("express");
 const app = express();
 
 app.get("/endpoint", (req, res) => {
-  const slack_name = "Okhitoya Alex";
-  const track = "Backend";
+  const slack_name = req.query.okhitoya_alex;
+  const track = req.query.backend;
   const currentDay = new Date().toLocaleString("en-US", { weekday: "long" });
   const utcTime = new Date().toISOString();
 
