@@ -4,7 +4,7 @@ const app = express();
 app.get("/api", (req, res) => {
   const { slack_name, track } = req.query;
   const currentDay = new Date().toLocaleString("en-US", { weekday: "long" });
-  const utcTime = new Date().toISOString();
+  const utcTime = new Date().toISOString().slice(0, 19) + "Z";
 
   const githubFileUrl =
     "https://github.com/lexmanthefirst/express_endpoint/blob/main/endpoint.js";
